@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,400&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.373), 
+        rgba(255, 192, 203, 0.344)
+    ), 
+    url('/static/images/bg (6).jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;  
+}
+/* root values */
+:root {
+    --container-color: #1a1e21;
+    --second-color: rgb(249, 103, 241);
+    --text-color: #172317;
+    --bg-color: #fff;
+}
+header{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:12%;
+    padding: 30px 100px;
+    background: rgba(150, 63, 176, 0.785);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+
+header .logo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: yellow;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.logo:hover{
+    background-color: rgb(80, 5, 93);
+    color:white;
+}
+
+header .logo span {
+    color: var(--second-color);
+}
+
+.home-text{
+    margin-top: 80px;
+    text-align: center;
+}
+
+
+.home{
+    margin-top: 80px;
+
+}
+.home-title {
+    border: 2px solid purple;
+    color: purple;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 15px;
+    background-color: #f9f5ff; /* Light purple background for better visibility */
+    align-content: center;
+    font-size: 32px;
+    margin-top: 80px;
+
+}
+
+::selection {
+    color: var(--bg-color);
+    background: var(--second-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    padding: 3rem 0 2rem;
+}
+
+.container {
+    max-width: 1068px;
+    margin: auto;
+    width: 100%;
+}
+
+a {
+    color: #fff;
+}
+
+
+
+/* Home section */
+.home {
+    width: 100%;
+    min-height: 500px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-text {
+    color: var(--bg-color);
+    text-align: center;
+
+}
+
+.home-title {
+    font-size: 3.5rem;
+    color: purple;
+    border: 2px solid purple;
+    padding: 15px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: #f9f5ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Nerko One', cursive;
+
+}
+
+.home-title:before {
+    font-size: 2.5rem;
+    position: absolute;
+    left: -50px;
+    top: -10px;
+}
+
+.home-title:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.home-title:hover:after {
+    font-size: 2.5rem;
+    position: absolute;
+    right: -50px;
+    top: -10px;
+}
+
+.result-text {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    display: block;
+    color: var(--text-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+    font-family: 'Nerko One', cursive;
+
+}
+
+.result-text:hover {
+    color: purple;
+    text-shadow: 2px 2px 5px rgba(128, 0, 128, 0.5);
+    transform: translateY(-5px);
+    transition: all 0.4s ease;
+    font-family: 'Nerko One', cursive;
+
+}
+
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 2.5rem;
+    }
+
+    .result-text {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Form Section */
+.form-section {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.btn2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--second-color);
+    color: var(--bg-color);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn2:hover {
+    background-color: hsl(287, 73%, 59%);
+}
+
+/* Footer */
+footer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    margin-top: 3rem;
+    background: #111;
+    display: flex;
+    font-family: sans-serif;
+    justify-content: space-between;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.footer-container .sec {
+    margin-right: 30px;
+}
+
+.footer-container .sec.aboutus {
+    width: 40%;
+}
+
+.footer-container h2 {
+    position: relative;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-container h2::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: rgb(233, 139, 217);
+}
+
+footer p {
+    color: #fff;
+}
+
+.sci {
+    margin: 20px;
+    display: flex;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: .5s;
+}
+
+.sci li a:hover {
+    background: rgb(77, 228, 255);
+}
+
+.sci i a .bx {
+    color: #fff;
+    font-size: 20px;
+}
+
+.quicklinks {
+    position: relative;
+    width: 25%;
+}
+
+.quicklinks ul li {
+    list-style: none;
+}
+
+.quicklinks ul li a {
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: .3s;
+}
+
+.quicklinks ul li a:hover {
+    color: #fff;
+}
+
+.footer-container .contactBx {
+    width: calc(35% - 60px);
+    margin-right: 0 !important;
+}
+
+.contactBx .info {
+    position: relative;
+}
+
+.contactBx .info li {
+    display: flex !important;
+    margin-bottom: 16px;
+}
+
+.contactBx .info li span:nth-child(1) {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+}
+

@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Poppins:ital,wght@0,600;0,700;1,400&display=swap');
+
+* {
+    font-family: 'Lora', serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+}
+
+:root {
+    --container-color: #1a1e21;
+    --second-color: rgb(236, 77, 130);
+    --text-color: #172317;
+    --bg-color: #ffffff;
+    --accent-color: #1a73e8;
+    --header-height: 60px;
+}
+
+::selection {
+    color: var(--bg-color);
+    background: var(--second-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    max-width: 800px; /* Adjusted for smaller images */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    padding: 3rem 0 2rem;
+}
+
+.container {
+    max-width: 3000px;
+    margin: auto;
+    width: 100%;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    background: rgba(2, 0, 4, 0.673);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 4px rgba(205, 89, 155, 0.1);
+    transition: background 0.5s;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header.shadow {
+    background: var(--bg-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: yellow;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.logo:hover{
+    background-color: rgb(80, 5, 93);
+    color:white;
+}
+
+header .logo span {
+    color: var(--second-color);
+}
+
+.signup {
+    padding: 8px 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 4px;
+    background: var(--second-color);
+    color: var(--bg-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background 0.5s, box-shadow 0.5s;
+}
+
+.signup:hover {
+    background: hsl(321, 69%, 79%);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Home Section */
+.home {
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+    background: url("/static/images/bg\ \(15\).jpg") no-repeat center center/cover;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.home-text {
+    color: var(--bg-color);
+}
+
+.home-title {
+    font-size: 3.5rem;
+    text-shadow: 0 4px 10px rgba(240, 97, 159, 0.2);
+    background-color: #000000d1;
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.home-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #000000d1;
+    border-radius: 30px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    width: 500px;
+}
+
+/* Blog Section */
+.blog {
+    max-width: 1600px;
+    margin: 60px auto;
+    background-color: #ffffff94;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+    margin: 60px auto; /* Margin around the blog section */
+}
+
+/* Blog Headers with Checkmark Emojis */
+.blog-content h2::before {
+    content: '✔️ '; /* Checkmark emoji */
+    color: #1a73e8; /* Same as heading color */
+}
+
+.blog-content h3::before {
+    content: '✔️ '; /* Checkmark emoji */
+    color: #ce389a; /* Secondary highlight color */
+}
+
+/* Blog Header */
+.blog-header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-color);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog Content */
+.blog-content {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin: 10%;
+}
+
+.blog-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #1a73e8; /* Highlight color */
+    text-align: left;
+    font-weight: 700;
+    background: linear-gradient(90deg, #e74183, #e52e71); /* Gradient for headings */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-content h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #ff6347; /* Secondary highlight color */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.blog-content .highlight {
+    background: #ffff00; /* Highlight background color */
+    color: #000; /* Highlight text color */
+    padding: 0 5px;
+    border-radius: 3px;
+}
+
+/* Blog Images */
+.blog-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.blog-image img {
+    max-width: 400px; /* Reduced size for more professional appearance */
+    border-radius: 8px;
+}
+
+/* Footer Section */
+footer {
+    background: var(--container-color);
+    color: var(--bg-color);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}

@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+}
+
+/* root values */
+:root{
+    --container-color: #1a1e21;
+    --second-color: rgb(249, 103, 241);
+    --text-color: #172317;
+    --bg-color: #fff;
+}
+
+::selection{
+    color: var(--bg-color);
+    background: var(--second-color);
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+img{
+    width: 100%;
+}
+
+section{
+    padding: 3rem 0 2rem;
+}
+
+.container{
+    max-width: 1068px;
+    margin: auto;
+    width: 100%;
+}
+
+a{
+    color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.373), 
+        rgba(255, 192, 203, 0.344)
+    ), 
+    url('/static/images/bg (14).jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;  
+}
+
+header{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:12%;
+    padding: 30px 100px;
+    background: rgba(150, 63, 176, 0.785);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+
+header .logo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: yellow;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.logo:hover{
+    background-color: rgb(80, 5, 93);
+    color:white;
+}
+
+header .logo span {
+    color: var(--second-color);
+}
+
+.home-text{
+    margin-top: 60px;
+    text-align: center;
+}
+/* Styling for the product comparison section */
+.product-comparison {
+    background-color: #f8f9fa9a;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-comparison .container {
+    background-color: #ffffffa2;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+.product-comparison h1 {
+    font-size: 28px;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.product-comparison label {
+    font-size: 16px;
+    color: #555;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.product-comparison input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.product-comparison input:focus {
+    border-color: #5f36b6;
+}
+
+.product-comparison button {
+    background-color: #7a42f4;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 10px rgba(122, 66, 244, 0.3);
+}
+
+.product-comparison button:hover {
+    background-color: #6c3ae6;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .product-comparison .container {
+        padding: 20px;
+    }
+
+    .product-comparison h1 {
+        font-size: 24px;
+    }
+
+    .product-comparison input {
+        width: calc(100% - 16px);
+    }
+
+    .product-comparison button {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+}
+.home-title {
+    border: 2px solid purple;
+    color: purple;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 15px;
+    background-color: #f9f5ff; /* Light purple background for better visibility */
+    align-content: center;
+    font-size: 32px;
+}
+
+/* Product Comparison Section */
+.comparison {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.product {
+    flex: 1;
+    max-width: 45%;
+    padding: 20px;
+    background: #ffffff92;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #1e325bfa; /* Add a border for better distinction */
+}
+
+.product img {
+    max-width: 40%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    height: 200px; /* Ensure all images have the same height */
+    object-fit: cover;
+}
+
+.product h2 {
+    font-size: 22px;
+    color: #160b20;
+    margin-bottom: 15px;
+    font-family: 'Nerko One', cursive;
+}
+
+
+/* Centered Section Title Styling */
+h1, h2 {
+    text-align: center;
+    color: #8e2de2;
+    margin: 20px 0;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    max-width: 1000px; /* Limit the width to fit within the page */
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table horizontally */
+    background: #ffffffae;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid #000; /* Black border around the table */
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #000; /* Black border for table cells */
+}
+
+th {
+    background-color: #1e325b92;
+    color: white;
+    border-top: 2px solid #1e325bfa; /* Black border on top of the header */
+}
+
+td a {
+    color: #8e2de2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Sentiment Table Styling */
+.sentiment-table {
+    width: 90%; /* Adjust width to make it slightly smaller */
+    max-width: 1000px; /* Limit the width to fit within the page */
+    border: 2px solid #000; /* Black border around the sentiment table */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: #ffffff9f;
+    margin: 20px auto; /* Center the table horizontally */
+}
+
+.sentiment-table th {
+    background: #b82f71a2;
+    color: #fff;
+    border-top: 2px solid #000; /* Black border on top of the header */
+}
+
+/* Center Align for Comparison and Sentiment Score Tables */
+h1, h2 {
+    text-align: center;
+    color: #8e2de2;
+    margin: 20px 0;
+}
+
+ /*FOOTER*/
+ footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    margin-top: 3rem;
+    background: #111111cf;
+    display: flex;
+    font-family: sans-serif;
+    justify-content: space-between;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.footer-container .sec{
+    margin-right: 30px;
+}
+
+.footer-container .sec.aboutus{
+    width: 40%;
+}
+
+.footer-container h2{
+    position: relative;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer-container h2::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: rgb(233, 139, 217);
+}
+
+footer p{
+    color: #fff;
+}
+
+.sci{
+    margin: 20px;
+    display: flex;
+}
+
+.sci li{
+    list-style: none;
+}
+
+.sci li a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: #020202;
+    border:1.5px solid rgba(154, 6, 167, 0.995);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: .5s;
+}
+
+.sci li a:hover{
+    background: rgba(72, 7, 126, 0.382);
+}
+
+.sci i a .bx{
+    color: #fff;
+    font-size: 20px;
+}
+
+.quicklinks{
+    position: relative;
+    width: 25%;
+}
+
+.quicklinks ul li{
+    list-style: none;
+}
+
+.quicklinks ul li a{
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+    transition: .3s;
+}
+
+.quicklinks ul li a:hover{
+    color: #fff;
+}
+
+.footer-container .contactBx{
+    width: calc(35% - 60px);
+    margin-right: 0 !important;
+}
+
+.contactBx .info{
+    position: relative;
+}
+
+.contactBx .info li{
+    display: flex !important;
+    margin-bottom: 16px;
+}
+
+.contactBx .info li span:nth-child(1){
+    color: #fff;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.contactBx .info li span{
+    color: #999;
+}
+
+.contactBx .info li a{
+    color: #999;
+    text-decoration: none;
+    transition: .5s;
+}
+
+.contactBx .info li a:hover{
+    color: #fff;
+}
+
+/* Footer Media Query */
+@media (max-width: 991px){
+    footer{
+        padding: 40px;
+        font-size: 20px;
+    }
+
+    footer .footer-container{
+        flex-direction: column;
+    }
+
+    footer .footer-container .sec{
+        margin-right: 0;
+        margin-bottom: 40px;
+    }
+
+    footer .footer-container .sec.aboutus{
+        width: 100% !important;
+    }
+
+    footer .footer-container .quicklinks{
+        width: 100%;
+    }
+
+    footer .footer-container .contactBx{
+        width: 100%;
+    }
+}
