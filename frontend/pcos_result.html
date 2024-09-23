@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax Scrolling Website | Codehal</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/pcos1.css') }}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Matemasie&family=Merienda:wght@300..900&family=Nerko+One&family=Patua+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+        </head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="nav container">
+            <a href="/pcos" class="logo">Back To Detector</a>
+            
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-text container">
+            <h2 class="home-title">🔮 PCOS Prediction Result</h2>
+            <span class="home-title" style="display: block; margin-top: 20px;">{{ result }}</span>
+        </div>
+    </section>
+
+    <section class="form-section container">
+        <div class="container">
+            <a href="/" class="btn2">Back to Home</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/periodtrack">Period Tracker</a></li>
+                    <li><a href="/pcos">PCOS Detector</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span style="color: white;">108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

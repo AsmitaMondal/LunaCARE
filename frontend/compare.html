@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax Scrolling Website | Codehal</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/comparison.css') }}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Matemasie&family=Merienda:wght@300..900&family=Nerko+One&family=Patua+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+        </head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="nav container">
+            <a href="/productc" class="logo">Back To Comparison</a>
+            
+        </div>
+    </header>
+    <section class="home" id="home">
+        <div class="home-text">
+            <h2 class="home-title">✨ Your Product Comparison Results🔍</h2>
+            <span class="home-subtitle"></span>
+        </div>
+    </section>
+    <!-- Product Comparison Section -->
+    <main>
+        <div class="comparison">
+            {% if product1 %}
+            <div class="product">
+                <img src="{{ product1['Image URL'] }}" alt="Product Image">
+                <h2>{{ product1['Title'] }}</h2>
+                <table class="product-table">
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ product1['Price'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rating</th>
+                        <td>{{ product1['Rating'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Reviews Count</th>
+                        <td>{{ product1['Reviews Count'] }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><a href="{{ product1['Product URL'] }}">View on Amazon</a></td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <p>Product 1 not found.</p>
+            {% endif %}
+
+            {% if product2 %}
+            <div class="product">
+                <img src="{{ product2['Image URL'] }}" alt="Product Image">
+                <h2>{{ product2['Title'] }}</h2>
+                <table class="product-table">
+                    <tr>
+                        <th>Price</th>
+                        <td>{{ product2['Price'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rating</th>
+                        <td>{{ product2['Rating'] }}</td>
+                    </tr>
+                    <tr>
+                        <th>Reviews Count</th>
+                        <td>{{ product2['Reviews Count'] }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><a href="{{ product2['Product URL'] }}">View on Amazon</a></td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <p>Product 2 not found.</p>
+            {% endif %}
+        </div>
+
+        <!-- Sentiment Comparison Table -->
+        {% if product1 and product2 %}
+        <center>        <h2 class="home-title">🪄 Your Sentiment Comparison Results 🌙</h2>
+        </center>
+        <table class="sentiment-table">
+            <tr>
+                <th></th>
+                <th>{{ product1['Title'] }}</th>
+                <th>{{ product2['Title'] }}</th>
+            </tr>
+            <tr>
+                <th>Sentiment Score</th>
+                <td>{{ product1['Sentiment Score'] }}</td>
+                <td>{{ product2['Sentiment Score'] }}</td>
+            </tr>
+            <tr>
+                <th>Positive Score</th>
+                <td>{{ product1['Positive Score'] }}</td>
+                <td>{{ product2['Positive Score'] }}</td>
+            </tr>
+            <tr>
+                <th>Negative Score</th>
+                <td>{{ product1['Negative Score'] }}</td>
+                <td>{{ product2['Negative Score'] }}</td>
+            </tr>
+            <tr>
+                <th>Neutral Score</th>
+                <td>{{ product1['Neutral Score'] }}</td>
+                <td>{{ product2['Neutral Score'] }}</td>
+            </tr>
+            <tr>
+                <th>Compound Score</th>
+                <td>{{ product1['Compound Score'] }}</td>
+                <td>{{ product2['Compound Score'] }}</td>
+            </tr>
+        </table>
+        {% endif %}
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/periodtrack">Period Tracker</a></li>
+                    <li><a href="">PCOS Detector</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span>108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Adding shadow to the header on scroll
+        let header = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 0) {
+                header.classList.add("shadow");
+            } else {
+                header.classList.remove("shadow");
+            }
+        });
+    </script>
+</body>
+</html>

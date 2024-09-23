@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Tracker</title>
+    <!-- Box-icon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/period.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+</head>
+<body>
+    <header>
+        <h2 class="logo">🌙LunaCARE</h2>
+        <nav class="navigation">
+            <a href="/home" class="active">Home<span></span></a>
+            <a href="#">PCOS Dectector<span></span></a>
+            <a href="/periodtrack">Period Tracker<span></span></a>
+            <a href="/blogs">Blogs<span></span></a>
+
+        </nav>
+
+        </nav>
+    </header>
+    <div class="track">
+        <div class="tracker-container">
+            <div class="tracker-box">
+                <div class="question-box">
+                    <label for="start-date">When did your last period start?</label>
+                    <div class="date-picker">
+                        <input type="date" id="start-date" />
+                    </div>
+                </div>
+                <div class="question-box">
+                    <label for="days-count">How many days did it last?</label>
+                    <div class="counter">
+                        <button onclick="changeDays(-1)">-</button>
+                        <span id="days-count">5</span>
+                        <button onclick="changeDays(1)">+</button>
+                    </div>
+                </div>
+                <div class="question-box">
+                    <label for="cycle-count">Duration of menstrual cycle?</label>
+                    <div class="counter">
+                        <button onclick="changeCycle(-1)">-</button>
+                        <span id="cycle-count">28</span>
+                        <button onclick="changeCycle(1)">+</button>
+                    </div>
+                </div>
+                <div class="button-box">
+                    <button onclick="trackPeriod()">Track Now</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Calendar Display Container -->
+        <div id="calendar-container" class="calendar-container"></div>
+    
+        <!-- Calendar Legend -->
+        <div class="legend">
+            <h4>Calendar Legend <button id="info-button" class="info-button">?</button>
+            </h4>        
+
+            <span class="legend-item period-day">Period Days</span> 
+            <span class="legend-item pre-period-day">Pre-Period Days</span> 
+            <span class="legend-item post-period-day">Post-Period Days</span> 
+            <span class="legend-item ovulation-day">Ovulation Days</span>
+        </div>
+    <!-- Custom Popup -->
+    <div id="custom-popup" class="custom-popup">
+        <div class="popup-content">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h3>🗓️ Know Your Days... </h3>
+            <br>
+            <p><span class="emoji">🩸</span> <strong>Period Days:</strong> These are the days when menstruation occurs. The flow can vary in intensity from light to heavy.</p>
+            <p><span class="emoji">🌃</span> <strong>Pre-Period Days:</strong> The days leading up to your period. You may experience symptoms like cramps or mood swings.</p>
+            <p><span class="emoji">🌟</span> <strong>Post-Period Days:</strong> The days following your period, when your cycle is transitioning to the next ovulation phase.</p>
+            <p><span class="emoji">⚡</span> <strong>Ovulation Days:</strong> This is when an egg is released from the ovary. It's the best time for conception if you're trying to get pregnant.</p>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/periodtrack">Period Tracker</a></li>
+                    <li><a href="">PCOS Detector</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span>108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+let daysCount = 5; // Duration of the period
+let cycleCount = 28; // Length of the cycle
+
+function changeDays(value) {
+    daysCount += value;
+    if (daysCount < 1) daysCount = 10;
+    if (daysCount > 10) daysCount = 1;
+    document.getElementById("days-count").textContent = daysCount;
+}
+
+function changeCycle(value) {
+    cycleCount += value;
+    if (cycleCount < 18) cycleCount = 40;
+    if (cycleCount > 40) cycleCount = 18;
+    document.getElementById("cycle-count").textContent = cycleCount;
+}
+
+function trackPeriod() {
+    const startDate = document.getElementById("start-date").value;
+    if (!startDate) {
+        alert("Please select the start date of your last period.");
+        return;
+    }
+
+    const formattedDate = moment(startDate);
+    const daysLast = daysCount;
+    const cycleDuration = cycleCount;
+    const periodDays = [];
+
+    for (let i = 0; i < 6; i++) {
+        const start = formattedDate.clone().add(i * cycleDuration, 'days');
+        const end = start.clone().add(daysLast, 'days');
+        const ovulationStart = start.clone().add(14, 'days'); // Ovulation starts on the 14th day of the cycle
+        const ovulationEnd = ovulationStart.clone().add(2, 'days'); // Ovulation lasts for 3 days
+        periodDays.push({ start, end, ovulationStart, ovulationEnd });
+    }
+
+    renderCalendar(periodDays);
+}
+
+function renderCalendar(periodDays) {
+    const container = document.getElementById("calendar-container");
+    container.innerHTML = "";
+
+    const now = moment();
+    for (let i = 0; i < 6; i++) {
+        const month = now.clone().add(i, 'months');
+        const monthHtml = generateMonth(month, periodDays);
+        container.innerHTML += monthHtml;
+    }
+}
+
+function generateMonth(month, periodDays) {
+    const daysInMonth = month.daysInMonth();
+    let html = `<div class="calendar-month"><h3>${month.format('MMMM YYYY')}</h3><table>`;
+    html += "<tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr><tr>";
+
+    for (let i = 0; i < month.startOf('month').day(); i++) {
+        html += "<td></td>";
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+        const currentDay = month.clone().date(day);
+        let dayClass = "";
+
+        for (let period of periodDays) {
+            if (currentDay.isBetween(period.start.clone().subtract(2, 'days'), period.start.clone().subtract(1, 'days'), null, '[]')) {
+                dayClass = "pre-period-day"; // Pre-period days
+            } else if (currentDay.isBetween(period.start, period.end, null, '[]')) {
+                dayClass = "period-day"; // Period days
+            } else if (currentDay.isBetween(period.end.clone().add(1, 'days'), period.end.clone().add(2, 'days'), null, '[]')) {
+                dayClass = "post-period-day"; // Post-period days
+            } else if (currentDay.isBetween(period.ovulationStart, period.ovulationEnd, null, '[]')) {
+                dayClass = "ovulation-day"; // Ovulation days
+            }
+        }
+
+        html += `<td class="${dayClass}">${day}</td>`;
+
+        if (currentDay.day() === 6 && day < daysInMonth) {
+            html += "</tr><tr>";
+        }
+    }
+
+    html += "</tr></table></div>";
+    return html;
+}
+
+            // Popup functionality
+            document.getElementById('info-button').addEventListener('click', function() {
+                document.getElementById('custom-popup').style.display = 'block';
+            });
+
+            document.getElementById('close-popup').addEventListener('click', function() {
+                document.getElementById('custom-popup').style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === document.getElementById('custom-popup')) {
+                    document.getElementById('custom-popup').style.display = 'none';
+                }
+            });
+    
+    </script>
+</body>
+</html>

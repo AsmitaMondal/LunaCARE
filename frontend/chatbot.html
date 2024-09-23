@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Period Tracker</title>
+        <!-- Box-icon -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/chatbot.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    </head>
+<body>
+    <header>
+        <div class="nav container">
+            <center><a href="/home" class="logo">Back To Home 🏡</a></center>
+        </div>
+    </header>
+    <div class="container">
+        <div class="title">Let's Chat 👩🌚</div>
+        <div class="chat" id="chat"></div>
+        <input type="text" class="input" id="input" placeholder="Type your message here...." />
+        <button class="button" id="button"><i class="fa-brands fa-telegram"></i></button>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/periodtrack">Period Tracker</a></li>
+                    <li><a href="/pcos">PCOS Detector</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span>108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let responses = []; // Array to hold the data from the JSON file
+
+        // Load JSON data
+        fetch('/periods')
+          .then(response => response.json())
+          .then(data => {
+            responses = data["Training Data"];
+          })
+          .catch(error => console.error('Error loading data:', error));
+
+        // Function to match input with instructions and get the response
+        function chatbot(input) {
+          let output = "Sorry, I don't understand that. Please try something else.";
+          input = input.toLowerCase();
+          for (let entry of responses) {
+            if (input.includes(entry["instruction (string)"].toLowerCase())) {
+              output = entry["output (string)"];
+              break;
+            }
+          }
+          return output;
+        }
+
+        // Display the user message on the chat
+        function displayUserMessage(message) {
+          let chat = document.getElementById("chat");
+          let userMessage = document.createElement("div");
+          userMessage.classList.add("message", "user");
+          let userAvatar = document.createElement("div");
+          userAvatar.classList.add("avatar");
+          let userText = document.createElement("div");
+          userText.classList.add("text");
+          userText.innerHTML = message;
+          userMessage.appendChild(userAvatar);
+          userMessage.appendChild(userText);
+          chat.appendChild(userMessage);
+          chat.scrollTop = chat.scrollHeight;
+        }
+
+        // Display the bot message on the chat
+        function displayBotMessage(message) {
+          let chat = document.getElementById("chat");
+          let botMessage = document.createElement("div");
+          botMessage.classList.add("message", "bot");
+          let botAvatar = document.createElement("div");
+          botAvatar.classList.add("avatar");
+          let botText = document.createElement("div");
+          botText.classList.add("text");
+          botText.innerHTML = message;
+          botMessage.appendChild(botAvatar);
+          botMessage.appendChild(botText);
+          chat.appendChild(botMessage);
+          chat.scrollTop = chat.scrollHeight;
+        }
+
+        // Send the user message and get the bot response
+        function sendMessage() {
+          let input = document.getElementById("input").value;
+          if (input) {
+            displayUserMessage(input);
+            let output = chatbot(input);
+            setTimeout(function() {
+              displayBotMessage(output);
+            }, 1000);
+            document.getElementById("input").value = "";
+          }
+        }
+
+        // Add a click event listener to the button
+        document.getElementById("button").addEventListener("click", sendMessage);
+
+        // Add a keypress event listener to the input
+        document.getElementById("input").addEventListener("keypress", function(event) {
+          if (event.key === 'Enter') {
+            sendMessage();
+          }
+        });
+    </script>
+</body>
+</html>

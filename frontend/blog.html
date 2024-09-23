@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling Website | Codehal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/blog.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Matemasie&family=Merienda:wght@300..900&family=Nerko+One&family=Patua+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    </head>
+    <body>  
+    <header>
+        <h2 class="logo">🌙LunaCARE</h2>
+        <nav class="navigation">
+            <a href="/home" class="active">Home<span></span></a>
+            <a href="#">PCOS Dectector<span></span></a>
+            <a href="/periodtrack">Period Tracker<span></span></a>
+            <a href="/blogs">Blogs<span></span></a>
+
+        </nav>
+    </header>
+    <center>
+        <section class="home" id="home">
+            <div class="home-text container">
+                <h2 class="home-title">Luna Blogger</h2>
+                <span class="home-subtitle">Your source of great content</span>
+            </div>
+        </section>
+    </center>
+
+
+    <section class="about container" id="about">
+        <div class="contentBx">
+            <h2 class="titleText">Catch up with the trending topics</h2>
+            <p class="title-text">
+                Ever felt lost in a sea of misinformation about periods? LunaCARE understands. That's why we created LunaBlogger, a one-stop platform overflowing with reliable, informative articles on all things menstrual health. Here, you'll find expert-backed content covering everything from managing cramps to understanding your cycle and navigating common conditions like PCOS. We're always looking for fresh voices so if you'd like to contribute your unique perspective and empower others with your insights, send your writing samples to LunaCare@gmail.com. Let's break the silence and shed light on a topic that deserves open and honest conversation!            </p>
+            <a href="#posts" class="btn2">Read more</a>
+        </div>
+        <div class="imgBx">
+            <img src="{{ url_for('static', filename='images/1 (3).jpg') }}" alt="" class="fitBg">
+        </div>
+    </section>
+    <center>
+        <div class="blanks"  id="posts">FIND WHAT SUITS YOU TO READ</div>
+    </center>
+    <div class="post container">
+        <!-- Post 1 -->
+        <div class="post-box tech">
+            <img src="{{ url_for('static', filename='images/menstrual.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Menstrual health</h2>
+            <a href="#" class="post-title">What Is Menstrual Cycle?</a>
+            <span class="post-date">12 Feb 2024</span>
+            <p class="post-description">Understanding the cycle is important for your overall health. We break down the phases and hormones of the menstrual cycle, helping you recognize ... <a href="/blog1">Read More</a>
+            </p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/Soham.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Soham</span>
+            </div>
+        </div>
+        <!-- Post 2 -->
+        <div class="post-box food">
+            <img src="{{ url_for('static', filename='images/guide.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Puberty</h2>
+            <a href="#" class="post-title">Puberty 101: A Clue Guide to Getting Your Period</a>
+            <span class="post-date">16 March 2024</span>
+            <p class="post-description">Getting your first period is a sign that you’ve reached the beginning of your reproductive years ... <a href="/blog2">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/Asmita.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Asmita</span>
+            </div>
+        </div>
+        <!-- Post 3 -->
+        <div class="post-box food">
+            <img src="{{ url_for('static', filename='images/woman-holds-green-vegetable-has-healthy-nutrition-active-lifestyle-sits-crossed-legs-fitness-mat-exercises-home.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Diet and Excercise</h2>
+            <a href="#" class="post-title">Vegetarianism, veganism, and the menstrual cycle</a>
+            <span class="post-date">23 Apr 2024</span>
+            <p class="post-description">Well-planned vegetarianism and veganism can be healthy diets at any stage of life, including pregnancy ... <a href="/blog3">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/Sayan.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Sayan</span>
+            </div>
+        </div>
+        <!-- Post 4 -->
+        <div class="post-box news">
+            <img src="{{ url_for('static', filename='images/top-view-menstruation-cup (1).jpg') }}" alt="" class="post-img">
+            <h2 class="category">Products</h2>
+            <a href="#" class="post-title">Menstrual cups: questions, myths, and misconceptions</a>
+            <span class="post-date">1 May 2024</span>
+            <p class="post-description">We answer your most pressing questions and clear up common misconceptions about this sustainable ... <a href="/blog4">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/SWARNA.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Swarna</span>
+            </div>
+        </div>
+        <!-- Post 5 -->
+        <div class="post-box tech">
+            <img src="{{ url_for('static', filename='images/4378897.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Visualize The Global Cycle</h2>
+            <a href="#" class="post-title">A Dashboard Presentation</a>
+            <span class="post-date">20 May 2024</span>
+            <p class="post-description">This is a comprehensive visualization of women's menstrual health using Tableau and effective symbols... <a href="/tableau">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/tANYA.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Tanya</span>
+            </div>
+        </div>
+        <!-- Post 6 -->
+        <div class="post-box news">
+            <img src="{{ url_for('static', filename='images/4263403.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Products</h2>
+            <a href="#" class="post-title">A short history of modern menstrual products</a>
+            <span class="post-date">1 June 2024</span>
+            <p class="post-description">Explore the fascinating history of modern menstrual products and how they've revolutionized women's lives ... <a href="Blogpage.html">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/ARI.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Aritra</span>
+            </div>
+        </div>
+        <!-- Post 7 -->
+        <div class="post-box tech">
+            <img src="{{ url_for('static', filename='images/OOM-Cycle-IG-1.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Menstrual Health</h2>
+            <a href="#" class="post-title">The myth of moon phases and menstruation</a>
+            <span class="post-date">13 June 2024</span>
+            <p class="post-description">Periods do not sync with the moon: Debunk this common myth and discover the science behind your menstrual cycle ... <a href="Blogpage.html">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/DIYO.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Diyotrim</span>
+            </div>
+        </div>
+        <!-- Post 8 -->
+        <div class="post-box news">
+            <img src="{{ url_for('static', filename='images/variety-female-menstrual-hygiene-top-view.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Products</h2>
+            <a href="#" class="post-title">Tampons: questions & misconceptions</a>
+            <span class="post-date">26 June 2024</span>
+            <p class="post-description"> Tampons are absorbent products inserted into the vagina during menstruation to absorb menstrual fluid ... <a href="Blogpage.html">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/Annu.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Annu</span>
+            </div>
+        </div>
+        <!-- Post 9 -->
+        <div class="post-box food">
+            <img src="{{ url_for('static', filename='images/man-holding-ovale-speech-bubble-talking-phone.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Guide</h2>
+            <a href="#" class="post-title">The Manly Guide to Menstruation</a>
+            <span class="post-date">3 July 2024</span>
+            <p class="post-description">Tampons have been the subject of moral panic, health scares, taxes, and ridiculous advertising. Can you lose your ... <a href="Blogpage.html">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/RITWIKA.png') }}" alt="" class="profile-img">
+                <span class="profile-name">Ritwika</span>
+            </div>
+        </div>
+                <!-- Post 10 -->
+                <div class="post-box food">
+                    <img src="{{ url_for('static', filename='images/pov.jpeg') }}" alt="" class="post-img">
+                    <h2 class="category">Guide</h2>
+                    <a href="/blog1" class="post-title">Addressing World's Period Poverty</a>
+                    <span class="post-date">16 July 2024</span>
+                    <p class="post-description">Promoting Menstrual Hygiene has become extremely crucial especially when it comes to supporting the minorities ... <a href="Blogpage.html">Read More</a></p>
+                    <div class="profile">
+                        <img src="{{ url_for('static', filename='images/f3.jpg') }}" alt="" class="profile-img">
+                        <span class="profile-name">David</span>
+                    </div>
+                </div>
+                        <!-- Post 11 -->
+        <div class="post-box food">
+            <img src="{{ url_for('static', filename='images/work.jpg') }}" alt="" class="post-img">
+            <h2 class="category">Guide</h2>
+            <a href="#" class="post-title">Safe and Effective Workouts for Your Cycle</a>
+            <span class="post-date">19 December 2023</span>
+            <p class="post-description">Discover the best workouts to support your body and boost your mood, no matter where you are in your cycle ... <a href="Blogpage.html">Read More</a></p>
+            <div class="profile">
+                <img src="{{ url_for('static', filename='images/f1.jpg') }}" alt="" class="profile-img">
+                <span class="profile-name">Sasha</span>
+            </div>
+        </div>
+                <!-- Post 12 -->
+                <div class="post-box food">
+                    <img src="{{ url_for('static', filename='images/child.jpg') }}" alt="" class="post-img">
+                    <h2 class="category">Guide</h2>
+                    <a href="#" class="post-title">Teaching Children and Teens About Menstruation</a>
+                    <span class="post-date">1 January 2024</span>
+                    <p class="post-description">In a world where periods are often shrouded in secrecy, it's essential to empower young people with knowledge ... <a href="Blogpage.html">Read More</a></p>
+                    <div class="profile">
+                        <img src="{{ url_for('static', filename='images/f2.jpg') }}" alt="" class="profile-img">
+                        <span class="profile-name">Yolanda</span>
+                    </div>
+                </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/periodtrack">Period Tracker</a></li>
+                    <li><a href="">PCOS Detector</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span>108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

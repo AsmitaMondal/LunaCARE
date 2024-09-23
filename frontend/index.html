@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling Website | Codehal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Matemasie&family=Merienda:wght@300..900&family=Nerko+One&family=Patua+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    </head>
+    <body>  
+    <header>
+        <h2 class="logo">🌙LunaCARE</h2>
+        <nav class="navigation">
+            <a href="/home" class="active">Home<span></span></a>
+            <a href="/pcos">PCOS Dectector<span></span></a>
+            <a href="/periodtrack">Period Tracker<span></span></a>
+            <a href="/blogs">Blogs<span></span></a>
+
+        </nav>
+    </header>
+
+    <!-- carousel -->
+    <div class="carousel">
+        <!-- list item -->
+        <div class="list">
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/bg (9).jpg') }}" class="image-with-gradient">
+                <div class="content">
+                    <div class="title">Shine Through </div>
+                    <div class="topic">Your CYCLE</div>
+                    <div class="des">
+                        <!-- lorem 50 -->
+                        A delicate pink hue suggests a harmonious balance and a gentle<br>
+                         flow of energy. Embrace the pink color of your period blood <br>
+                         as a sign of a balanced and harmonious cycle, a reminder of your <br>
+                         inner peace and tranquility.                    </div>
+                    <div class="buttons">
+                        <button class="see-more-button" data-message="Pink🩷: Suggests a balanced and light flow, often associated with lower estrogen levels.">SEE MORE</button>
+                        <button>KNOW MORE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/bg (2).jpg') }}" class="image-with-gradient">
+                <div class="content">
+                    <div class="title">Harness Your</div>
+                    <div class="topic">Period POWER</div>
+                    <div class="des">
+                        A deep purple color represents strength, wisdom, and<br>
+                         a connection to your inner self. Embrace the purple<br>
+                          hue of your period blood as a sign of your inner <br>
+                          strength and wisdom, a reminder of your connection <br>
+                          to something greater than yourself.                    </div>
+                    <div class="buttons">
+                        <button class="see-more-button" data-message="Purple💜: May indicate hormonal imbalances, particularly excess estrogen.">SEE MORE</button>
+                        <button>KNOW MORE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/bg (12).jpg') }}" class="image-with-gradient">
+                <div class="content">
+                    <div class="title">Embrace The </div>
+                    <div class="topic">Divine FLOW</div>
+                    <div class="des">
+                        Like a vibrant sunrise, your red period blood symbolizes<br>
+                         the beginning of a new cycle and a fresh start. <br>
+                         Embrace the red hue of your period blood as a sign<br>
+                          of your natural cycle and a reminder of your body's<br>
+                           ability to renew and replenish itself.                    </div>
+                    <div class="buttons">
+                        <button class="see-more-button" data-message="Red❤️: Indicates a healthy and regular flow, symbolizing the start of a new cycle.">SEE MORE</button>
+                        <button>KNOW MORE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/bg (13).jpg') }}" class="image-with-gradient">
+                <div class="content">
+                    <div class="title">Feel Body</div>
+                    <div class="topic">CONFIDENT</div>
+                    <div class="des">
+                        A neutral grey tone signifies a balanced and grounded energy,<br>
+                         a reminder that even in the midst of change, stability<br>
+                          can be found. Embrace the grey color of your period blood<br>
+                           as a sign of your balanced and grounded nature, a reminder<br>
+                            that even in the midst of change, you can find strength and stability.                    </div>
+                    <div class="buttons">
+                        <button class="see-more-button" data-message="Grey🩶: Could be a sign of infection or a potential health issue, requiring medical attention.">SEE MORE</button>
+                        <button>KNOW MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- list thumnail -->
+        <div class="thumbnail">
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/bg (9).jpg') }}">
+                <div class="content">
+                    <div class="title">
+                        PINK...
+                    </div>
+                
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/bg (2).jpg') }}">
+                <div class="content">
+                    <div class="title">
+                        PURPLE...
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="item">
+                <img src=".{{ url_for('static', filename='images/bg (12).jpg') }}">
+                <div class="content">
+                    <div class="title">
+                        RED...
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ url_for('static', filename='images/bg (13).jpg') }}">
+                <div class="content">
+                    <div class="title">
+                        GREY...
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- next prev -->
+
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <!-- time running -->
+        <div class="time"></div>
+        
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+          <span class="close-button">&times;</span>
+          <h2>The Color 🌚</h2>
+          <p>Suggests the Health of your Flow</p>
+        </div>
+      </div>
+
+ <div class="about" id="abt">
+   <div class="head">
+    <h1>About 🌙LunaCARE</h1>
+   </div>
+   <div class="about_content">
+    <img src="{{ url_for('static', filename='images/1 (5).png') }}"  class="upAndDown">
+    <p>👩‍🦰 <span style="color: #FF69B4;">Dear Women,</span> <br><br>
+        You are <span style="color: #FF1493;">precious</span> 💖. You are the <span style="color: #FF6347;">epitome of beauty</span> 🌟 and the <span style="color: #9400D3;">ultimate form of divinity</span> 🌷.
+        Let not the society make you feel otherwise. 🚫
+        As you embark upon a journey of <span style="color: #FFB6C1;">self-love</span> 💕 and <span style="color: #DB7093;">self-discovery</span> 🌱, 
+        we bring before you <span style="color: #8A2BE2;"><b> 🌙LunaCARE</b></span> where we believe that every woman deserves
+        to feel <span style="color: #FF69B4;">confident</span> 💪, <span style="color: #FF6347;">empowered</span> ✨, and <span style="color: #DB7093;">in control</span> of her body 👑.
+        Our mission is to provide you with the <span style="color: #20B2AA;">knowledge</span> 📚 and <span style="color: #FFA07A;">tools</span> 🛠️ you need to
+        embrace your menstrual cycle with ease 🌺. From <span style="color: #FF69B4;">tracking your period</span> 🗓️ to
+        understanding <span style="color: #FF4500;">PCOS</span> 🌼, we're here to support you every step of the way 👣.<br><br>
+        Embrace the <span style="color: #FF1493;">rhythm of your body</span> 🎶, just as the moon embraces its <span style="color: #4682B4;">celestial journey</span> 🌌!
+    </p>
+    
+   </div>
+ </div>
+<div class="features">
+    <div class="head">
+        <h1>🌙LunaCARE &nbsp;Features</h1>
+       </div>
+       <center>
+        <marquee behavior="scroll" scrollamount="8" direction="left" loop="infinite">            
+            <p style="color: #FFD700; font-weight: bold; font-size: 20px;">
+                🌟 <span style="color: #FF69B4;">With a Spirit of Joy...</span> <span style="color: #a7cf0a;">This is Your Place of</span> 🛋️ <span style="color: #00CED1;">Comfort</span> 💖 <span style="color: #FF6347;">and Care</span> 🌟
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                🌟 <span style="color: #FF69B4;">With a Spirit of Joy...</span> <span style="color: #a7cf0a;">This is Your Place of</span> 🛋️ <span style="color: #00CED1;">Comfort</span> 💖 <span style="color: #FF6347;">and Care</span> 
+
+            </p>            
+        </marquee>
+    </center>
+    <div class="feature_content">
+        <div class="card scroll-card">
+            <div class="face front">
+                <img src="{{ url_for('static', filename='images/1.png') }}" alt="">
+                <h3>Period Tracker</h3>
+            </div>
+            <div class="face back">
+                <h3>🩸</h3>
+                <p>Accurately track your menstrual cycle, predict your next period, and identify irregularities with our easy-to-use period tracker.</p>
+                <div class="link">
+                    <a href="/periodtrack">Track Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card scroll-card">
+            <div class="face front">
+                <img src="{{ url_for('static', filename='images/2.png') }}" alt="">
+                <h3>PCOS Detector</h3>
+            </div>
+            <div class="face back">
+                <h3>👧</h3>
+                <p>Detect potential signs of PCOS early with our advanced algorithm, designed to help you take proactive steps for your health.</p>
+                <div class="link">
+                    <a href="/pcos">Try Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card scroll-card">
+            <div class="face front">
+                <img src="{{ url_for('static', filename='images/5.png') }}" alt="">
+                <h3>Product Comparison</h3>
+            </div>
+            <div class="face back">
+                <h3>⚖️</h3>
+                <p>Compare curated product recommendations tailored to your specific needs and preferences, helping you find the best products for your menstrual health.</p>
+                <div class="link">
+                    <a href="/productc">Check Out</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card scroll-card">
+            <div class="face front">
+                <img src="{{ url_for('static', filename='images/6.png') }}" alt="">
+                <h3>Chatbot</h3>
+            </div>
+            <div class="face back">
+                <h3>💬</h3>
+                <p>Get instant answers to your questions about menstrual health and PCOS with our friendly and knowledgeable chatbot available 24/7.</p>
+                <div class="link">
+                    <a href="/chatbot">Talk Now</a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card scroll-card">
+            <div class="face front">
+                <img src="{{ url_for('static', filename='images/4.png') }}" alt="">
+                <h3>Blogs</h3>
+            </div>
+            <div class="face back">
+                <h3>✒️</h3>
+                <p>Stay informed and inspired with our informative blogs, covering a wide range of topics related to menstrual health and women's well-being.
+                </p>
+                <div class="link">
+                    <a href="/blogs">Read Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+       <center>
+        <h2> 💝 RELIABLE RESOURCES IN ONE CLICK! 🖱️</h2>
+       </center>
+       <div class="container1">
+        <div class="single-image scroll-image">
+            <img src="{{ url_for('static', filename='images/comics (3).png') }}" alt="Image 1">
+        </div>
+        <div class="side-images">
+            <img src="{{ url_for('static', filename='images/comics (1).png') }}" alt="Image 2" class="side-image scroll-image">
+            <img src="{{ url_for('static', filename='images/comics (2).png') }}" alt="Image 3" class="side-image scroll-image">
+        </div>
+    </div>
+</div>
+
+<div class="testimonials">
+    <div class="head">
+        <h1>Our &nbsp;Happy &nbsp; Users 😃</h1>
+       </div>
+       <div class="elements1">
+        <main>
+            <article class="card1 card1-1">
+              <div class="card1__head">
+                <img src="../static/images/test (4).jpg" alt="">
+                <div class="card1__user">
+                  <div class="name">Daniel Clifford</div>
+                  <p class="title">Verified Graduate</p>
+                </div>
+              </div>
+              <div class="card1__heading">
+                LunaCARE helped me track my cycle accurately and made life so much easier. It has been my go-to then onwards!
+
+              </div>
+              <p class="card1__detail">
+                “  I’ve always struggled with irregular periods, and keeping track was a nightmare. Since using LunaCARE, 
+                I’ve been able to plan ahead and manage my health more effectively. The period tracker’s predictions are 
+                spot-on, and the reminders help me stay prepared. I also love the additional tips they provide to ease 
+                the discomfort. The tracker is accurate to 5 months and that is insane. Now I do not have to worry about it anymore!”
+              </p>
+            </article>
+            <article class="card1 card1-2">
+              <div class="card1__head">
+                <img src="../static/images/test (5).jpg" alt="">
+                <div class="card1__user">
+                  <div class="name">Jonathan Walters</div>
+                  <p class="title">Verified Graduate</p>
+                </div>
+              </div>
+              <div class="card1__heading">
+                The PCOS quiz was an eye-opener.
+        
+              </div>
+              <p class="card1__detail">
+                “ I had a suspicion that I might have PCOS but wasn’t sure. The LunaCARE PCOS detector quiz was so 
+                simple yet informative. It pointed out symptoms I hadn’t even considered, and it helped me decide to 
+                consult a doctor, which was a life-changing decision. ”      
+              </p>
+            </article>
+            <article class="card1 card1-3">
+              <div class="card1__head">
+                <img src="../static/images/test (1).jpg" alt="">
+                <div class="card1__user">
+                  <div class="name">Jeanette Harmon</div>
+                  <p class="title">Verified Graduate</p>
+                </div>
+              </div>
+              <div class="card1__heading">
+                An overall wonderful and rewarding experience
+              </div>
+              <p class="card1__detail">
+                “ The chatbot answered all my period-related queries with ease.
+                It’s quick, reliable, and makes sure 
+            I feel informed and empowered about my menstrual health.”
+              </p>
+            </article>
+            <article class="card1 card1-4">
+              <div class="card1__head">
+                <img src="../static/images/test (3).jpg" alt="">
+                <div class="card1__user">
+                  <div class="name">Patrick Abrams</div>
+                  <p class="title">Verified Graduate</p>
+                </div>
+              </div>
+              <div class="card1__heading">
+                LunaCARE’s blogs are a great resource for learning about period care and more.
+              </div>
+              <p class="card1__detail">
+                “ I’ve found it hard with managing my periods for years, but the blogs on LunaCARE helped me understand 
+                so much better. From period poverty awareness to practical tips on managing premenstrual symptoms, 
+                I’ve found them incredibly useful. It’s a space where I feel understood and supported. They are well researched articles
+                and I believe have been curated after proper medical references because it shows in the quality of their content. Very satisfied.”
+              </p>
+            </article>
+            <article class="card1 card1-5">
+              <div class="card1__head">
+                <img src="../static/images/test (2).jpg" alt="">
+                <div class="card1__user">
+                  <div class="name">Kira Whittle</div>
+                  <p class="title">Verified Graduate</p>
+                </div>
+              </div>
+              <div class="card1__heading">
+                Such a life-changing experience. Highly recommended!
+              </div>
+              <p class="card1__detail">
+                “ Choosing between menstrual cups, pads, and tampons felt overwhelming with so 
+                many options on the market. LunaCARE’s product comparison tool was a game-changer! 
+                It didn’t just provide reviews, but also detailed insights from Amazon, helping me 
+                weigh the pros and cons of each product based on real user experiences. I loved how 
+                easy it made the decision process for me, especially considering my unique needs. 
+                It's such a thoughtful and empowering addition to the app, and I couldn't be more satisfied with my final choice! 
+                It even allowed me to filter products based on specific preferences like eco-friendliness and cost-effectiveness, 
+                which I found extremely useful. ”
+
+              </p>
+            </article>
+          </main>
+       </div>
+      
+        
+    </div>
+</div>
+<center><h1>📝 ADD YOURS! ✨</h1>
+</center>
+<center>
+    <div class="container">
+
+        <!-- Form for submitting testimonials -->
+        <form class="custom-form" action="/formsubmit" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name ✨</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email 📧</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">Rating 🌟 (1-5)</label>
+                <input type="number" class="form-control" id="rating" name="rating" min="1" max="5" placeholder="Rate us" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message 💬</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="showAlert()">Submit 🚀</button>
+        </form>
+    </div>
+</center>
+
+   
+            <!-- Custom Alert Popup -->
+            <div id="test-popup" class="test-popup">
+                <h4>Review Submitted Successfully!</h4>
+                <button onclick="document.getElementById('test-popup').style.display='none'">OK</button>
+            </div>
+<footer>
+    <div class="footer-container">
+        <div class="sec aboutus">
+            <h2>About Us</h2>
+            <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+            <ul class="sci">
+                <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="sec quicklinks">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#abt">About</a></li>
+                <li><a href="Period.html">Period Tracker</a></li>
+                <li><a href="">PCOS Detector</a></li>
+            </ul>
+        </div>
+        <div class="sec contactBx">
+            <h2>Contact Info</h2>
+            <ul class="info">
+                <li>
+                    <span><i class='bx bxs-map'></i></span>
+                    <span>108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                </li>
+                <li>
+                    <span><i class='bx bx-envelope' ></i></span>
+                    <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+        //home page animation
+let nextDom = document.getElementById('next');
+let prevDom = document.getElementById('prev');
+
+let carouselDom = document.querySelector('.carousel');
+let SliderDom = carouselDom.querySelector('.carousel .list');
+let thumbnailBorderDom = document.querySelector('.carousel .thumbnail');
+let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
+let timeDom = document.querySelector('.carousel .time');
+
+thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+let timeRunning = 3000;
+let timeAutoNext = 7000;
+
+nextDom.onclick = function(){
+    showSlider('next');    
+}
+
+prevDom.onclick = function(){
+    showSlider('prev');    
+}
+let runTimeOut;
+let runNextAuto = setTimeout(() => {
+    next.click();
+}, timeAutoNext)
+function showSlider(type){
+    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
+    let thumbnailItemsDom = document.querySelectorAll('.carousel .thumbnail .item');
+    
+    if(type === 'next'){
+        SliderDom.appendChild(SliderItemsDom[0]);
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        carouselDom.classList.add('next');
+    }else{
+        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+        thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+        carouselDom.classList.add('prev');
+    }
+    clearTimeout(runTimeOut);
+    runTimeOut = setTimeout(() => {
+        carouselDom.classList.remove('next');
+        carouselDom.classList.remove('prev');
+    }, timeRunning);
+
+    clearTimeout(runNextAuto);
+    runNextAuto = setTimeout(() => {
+        next.click();
+    }, timeAutoNext)
+}
+
+// display message for each color
+document.addEventListener('DOMContentLoaded', () => {
+    const seeMoreButtons = document.querySelectorAll('.see-more-button');
+    const popup = document.getElementById('popup');
+    const closeButton = document.querySelector('.close-button');
+    const popupContent = document.querySelector('.popup-content p');
+
+    // Add click event listeners to each "SEE MORE" button
+    seeMoreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const message = button.getAttribute('data-message');
+            popupContent.textContent = message;
+            popup.style.display = 'block';
+        });
+    });
+
+    // Add click event listener to close button
+    closeButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    // Close popup when clicking outside of it
+    window.addEventListener('click', (event) => {
+        if (event.target == popup) {
+            popup.style.display = 'none';
+        }
+    });
+});
+
+// scroll item float in
+document.addEventListener("DOMContentLoaded", function () {
+    const hiddenElements = document.querySelectorAll('.about_content');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }else{
+                entry.target.classList.remove('visible');
+            }
+        });
+    });
+
+    hiddenElements.forEach(el => observer.observe(el));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hiddenElements = document.querySelectorAll('.scroll-image');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    });
+
+    hiddenElements.forEach(el => observer.observe(el));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hiddenCards = document.querySelectorAll('.scroll-card');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    });
+
+    hiddenCards.forEach(card => observer.observe(card));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hiddenCards = document.querySelectorAll('.card1');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    });
+
+    hiddenCards.forEach(card => observer.observe(card));
+});
+
+
+      // JavaScript function to show custom alert on form submit
+      function showCustomAlert(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Show the custom popup
+            const popup = document.getElementById('test-popup');
+            popup.style.display = 'block';
+
+            // Hide the popup after a delay
+            setTimeout(() => {
+                popup.style.display = 'none';
+                // Optionally, you can submit the form here if needed
+                // event.target.submit(); // Uncomment to submit form after showing popup
+            }, 2000); // Hide after 2 seconds
+        }
+
+            // JavaScript function to show alert on button click
+    function showAlert() {
+        alert('Review submitted successfully!');
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax Scrolling Website | Codehal</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/pcos.css') }}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Matemasie&family=Merienda:wght@300..900&family=Nerko+One&family=Patua+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+        </head>
+<body>
+    <header>
+        <h2 class="logo">🌙LunaCARE</h2>
+        <nav class="navigation">
+            <a href="/home" class="active">Home<span></span></a>
+            <a href="#">PCOS Dectector<span></span></a>
+            <a href="/periodtrack">Period Tracker<span></span></a>
+            <a href="/blogs">Blogs<span></span></a>
+
+        </nav>
+    </header>
+
+    <center>
+        <section class="home" id="home">
+            <div class="home-text container">
+                <h2 class="home-title">Luna PCOS Detector</h2>
+            </div>
+        </section>
+    </center>
+
+    <section class="about container" id="about">
+        <div class="contentBx">
+            <h2 class="titleText">Know About Your PCOS</h2>
+            <p class="title-text">
+                At LunaCare, our PCOS Tracker is designed to be your comprehensive tool for managing and understanding PCOS. This feature allows you to meticulously track your symptoms, monitor menstrual cycles, and assess hormonal changes, offering a clear view of how PCOS affects your health. By logging your daily symptoms and analyzing trends through detailed reports and visualizations, you can make informed decisions and receive personalized insights tailored to your needs. Additionally, our supportive chatbot and expert resources provide you with guidance and answers to your questions. LunaCare is dedicated to empowering you with the tools and support needed to take control of your health with confidence and clarity.
+            </p>
+            <a href="#forms" class="btn2">Try Now</a>
+        </div>
+        <div class="imgBx">
+            <img src="{{ url_for('static', filename='images/1 (13).jpg') }}" alt="">
+        </div>
+    </section>
+
+    <section class="form-section container" id="forms">
+        <div class="form-container">
+            <h1>👩‍⚕️ PCOS Indicator Analysis 👨‍⚕️</h1>
+            <form id="pcosForm" action="/predict" method="post">
+                <!-- Form fields -->
+                <div class="form-group">
+                    <label for="cycle">🩸 Cycle Regularity (0-5):</label>
+                    <input type="number" step="1" id="cycle" min="0" max="5" name="Cycle" placeholder="Cycle (0-5)" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="weight_gain">📈 Weight Gain (Y/N):</label>
+                    <select id="weight_gain" name="Weight_gain" required>
+                        <option value="">--Select--</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="hair_growth">💇‍♀️ Hair Growth (Y/N):</label>
+                    <select id="hair_growth" name="Hair_growth" required>
+                        <option value="">--Select--</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="skin_darkening">🌑 Skin Darkening (Y/N):</label>
+                    <select id="skin_darkening" name="Skin_darkening" required>
+                        <option value="">--Select--</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="pimples">🔴 Pimples (Y/N):</label>
+                    <select id="pimples" name="Pimples" required>
+                        <option value="">--Select--</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="fast_food">🍔 Fast Food (Y/N):</label>
+                    <select id="fast_food" name="Fast_food" required>
+                        <option value="">--Select--</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="follicle_no_l">🩺 Follicle No. (Left):</label>
+                    <input type="number" step="1" id="follicle_no_l" min="0" max="22" name="Follicle_no_L" placeholder="Follicle No. (Left)" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="follicle_no_r">🩺 Follicle No. (Right):</label>
+                    <input type="number" step="1" id="follicle_no_r" min="0" max="22" name="Follicle_no_R" placeholder="Follicle No. (Right)" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="avg_f_size_l">📏 Avg. Follicle Size (Left) (mm):</label>
+                    <input type="number" step="0.1" id="avg_f_size_l" min="0" max="24" name="Avg_F_size_L" placeholder="Avg. Follicle Size (Left)" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="avg_f_size_r">📏 Avg. Follicle Size (Right) (mm):</label>
+                    <input type="number" step="0.1" id="avg_f_size_r" min="0" max="24" name="Avg_F_size_R" placeholder="Avg. Follicle Size (Right)" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="tsh">🧪 TSH (mIU/L):</label>
+                    <input type="number" step="0.01" id="tsh" min="0.4" max="5" name="TSH" placeholder="TSH (mIU/L)" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="prl">🧪 PRL (ng/mL):</label>
+                    <input type="number" step="0.01" id="prl" min="0" max="400" name="PRL" placeholder="PRL (ng/mL)" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="bmi">📊 BMI:</label>
+                    <input type="number" step="0.01" id="bmi" min="12" max="40" name="BMI" placeholder="BMI" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="fsh_lh_ratio">⚖️ FSH-LH Ratio:</label>
+                    <input type="number" step="0.01" id="fsh_lh_ratio" min="0" max="5" name="FSH_LH_Ratio" placeholder="FSH-LH Ratio" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="rbs">🩸 RBS (mg/dl):</label>
+                    <input type="number" step="0.1" id="rbs" min="60" max="140" name="RBS" placeholder="RBS (mg/dl)" required>
+                </div>
+    
+                <button type="submit">🔍 Predict</button>
+            </form>
+        </div>
+    </section>
+    
+    
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/periodtrack">Period Tracker</a></li>
+                    <li><a href="">PCOS Detector</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span>108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Adding shadow to the header on scroll
+        let header = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 0) {
+                header.classList.add("shadow");
+            } else {
+                header.classList.remove("shadow");
+            }
+        });
+
+        // Form Validation
+        document.getElementById('pcosForm').addEventListener('submit', function(event) {
+            let isValid = true;
+            let errorMessages = [];
+
+            // Retrieve form fields
+            const cycle = document.getElementById('cycle').value;
+            const weightGain = document.getElementById('weight_gain').value;
+            const hairGrowth = document.getElementById('hair_growth').value;
+            const skinDarkening = document.getElementById('skin_darkening').value;
+            const pimples = document.getElementById('pimples').value;
+            const fastFood = document.getElementById('fast_food').value;
+            const follicleNoL = document.getElementById('follicle_no_l').value;
+            const follicleNoR = document.getElementById('follicle_no_r').value;
+            const avgFSizeL = document.getElementById('avg_f_size_l').value;
+            const avgFSizeR = document.getElementById('avg_f_size_r').value;
+            const tsh = document.getElementById('tsh').value;
+            const prl = document.getElementById('prl').value;
+            const bmi = document.getElementById('bmi').value;
+            const fshLhRatio = document.getElementById('fsh_lh_ratio').value;
+            const rbs = document.getElementById('rbs').value;
+
+            // Validate required fields
+            if (!cycle || !weightGain || !hairGrowth || !skinDarkening || !pimples || !fastFood || !follicleNoL || !follicleNoR || !avgFSizeL || !avgFSizeR || !tsh || !prl || !bmi || !fshLhRatio || !rbs) {
+                isValid = false;
+                errorMessages.push("All fields are required.");
+            }
+
+            // Additional validation checks
+            if (cycle < 0 || cycle > 5) {
+                isValid = false;
+                errorMessages.push("Cycle must be between 0 and 5.");
+            }
+            if (follicleNoL < 0 || follicleNoL > 22) {
+                isValid = false;
+                errorMessages.push("Follicle No. (Left) must be between 0 and 22.");
+            }
+            if (follicleNoR < 0 || follicleNoR > 22) {
+                isValid = false;
+                errorMessages.push("Follicle No. (Right) must be between 0 and 22.");
+            }
+            if (avgFSizeL < 0 || avgFSizeL > 24) {
+                isValid = false;
+                errorMessages.push("Average Follicle size (Left) must be between 0 and 24 mm.");
+            }
+            if (avgFSizeR < 0 || avgFSizeR > 24) {
+                isValid = false;
+                errorMessages.push("Average Follicle size (Right) must be between 0 and 24 mm.");
+            }
+            if (tsh < 0.4 || tsh > 5) {
+                isValid = false;
+                errorMessages.push("TSH must be between 0.4 and 5 mIU/L.");
+            }
+            if (prl < 0 || prl > 400) {
+                isValid = false;
+                errorMessages.push("PRL must be between 0 and 400 ng/mL.");
+            }
+            if (bmi < 12 || bmi > 40) {
+                isValid = false;
+                errorMessages.push("BMI must be between 12 and 40.");
+            }
+            if (fshLhRatio < 0 || fshLhRatio > 5) {
+                isValid = false;
+                errorMessages.push("FSH-LH Ratio must be between 0 and 5.");
+            }
+            if (rbs < 60 || rbs > 140) {
+                isValid = false;
+                errorMessages.push("RBS must be between 60 and 140 mg/dl.");
+            }
+
+            // Show error messages if any
+            if (!isValid) {
+                event.preventDefault(); // Prevent form submission
+                alert(errorMessages.join("\n"));
+            }
+        });
+    </script>
+</body>
+</html>

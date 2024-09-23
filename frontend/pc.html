@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Parallax Scrolling Website | Codehal</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/pc.css') }}">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kalnia+Glaze:wght@100..700&family=Matemasie&family=Merienda:wght@300..900&family=Nerko+One&family=Patua+One&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+        </head>
+<body>
+    <header>
+        <h2 class="logo">🌙LunaCARE</h2>
+        <nav class="navigation">
+            <a href="/home" class="active">Home<span></span></a>
+            <a href="#">PCOS Dectector<span></span></a>
+            <a href="/periodtrack">Period Tracker<span></span></a>
+            <a href="/blogs">Blogs<span></span></a>
+
+        </nav>
+    </header>
+
+    <center>
+        <section class="home" id="home">
+            <div class="home-text container">
+                <h2 class="home-title">Luna Compare</h2>
+                <span class="home-subtitle">Your Ultimate Choice Guide</span>
+            </div>
+        </section>
+    </center>
+    <section class="about container" id="about">
+        <div class="contentBx">
+            <h2 class="titleText"> Smarter Choices for Hygiene Needs</h2>
+            <p class="title-text">
+                Welcome to Luna Compare, your trusted platform for comparing women's hygiene products on Amazon. Discover the best products for your needs by comparing reviews, star ratings, and sentiment scores. Whether you're exploring new sanitary pads, menstrual cups, or other hygiene essentials, Luna Compare empowers you with insights from real customer feedback. Our platform analyzes reviews and sentiment to help you make informed decisions with confidence. Join a community that values transparency and find the best products tailored to your preferences. With Luna Compare, take control of your purchases and prioritize your health with clarity and ease.
+            </p>
+            <a href="#comparison" class="btn2">Try Now</a>
+        </div>
+        <div class="imgBx">
+            <img src="{{ url_for('static', filename='images/1 (2).jpg') }}" alt="" class="fitBg">
+        </div>
+    </section>
+    <center>
+        <div class="blanks" id="comparison">FIND WHAT SUITS YOU TO USE</div>
+    </center>
+    
+    <!-- Product Comparison Section -->
+    <section class="product-comparison">
+        <div class="container">
+            <h1>Enter Product ASINs</h1>
+            <form method="POST" action="/compare">
+                <label for="asin1">ASIN 1:</label>
+                <input type="text" id="asin1" name="asin1" required>
+                <label for="asin2">ASIN 2:</label>
+                <input type="text" id="asin2" name="asin2" required>
+                <button type="submit">Compare</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="sec aboutus">
+                <h2>About Us</h2>
+                <p>LunaCare is your all-in-one app for managing menstrual health with confidence. Track your cycle, predict symptoms, and receive personalized insights tailored to your needs. Our platform offers tools like a period calculator, PCOS prediction, and a supportive chatbot to answer your questions. </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="bx bxl-facebook"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-instagram"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+                    <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <div class="sec quicklinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/blogs">Blogs</a></li>
+                    <li><a href="/periodtrack">Period Tracker</a></li>
+                    <li><a href="">PCOS Detector</a></li>
+                </ul>
+            </div>
+            <div class="sec contactBx">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                        <span><i class='bx bxs-map'></i></span>
+                        <span>108 Crescent Moon Avenue <br> Destination 37913 <br> Haven of Selene</span>
+                    </li>
+                    <li>
+                        <span><i class='bx bx-envelope' ></i></span>
+                        <p><a href="mailto:codemyhobby9@gmail.com">LunaCare@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Adding shadow to the header on scroll
+let header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+        header.classList.add("shadow");
+    } else {
+        header.classList.remove("shadow");
+    }
+});
+    </script>
+</body>
+</html>
