@@ -9,7 +9,7 @@ from flask import jsonify
 
 app = Flask(__name__)
 
-GOOGLE_API_KEY = 'AIzaSyCzH7EiW_ZaCpxv6lCR5PB33CQiG1fSvnQ'
+GOOGLE_API_KEY = 'key'
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-1.5-flash')
 
