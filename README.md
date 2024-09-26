@@ -1,4 +1,4 @@
-# 🌙 LunaCare - Empowering Women’s Menstrual Health & Well-being
+# 🌙 LunaCARE - Empowering Women’s Menstrual Health & Well-being
 
 Welcome to **LunaCare**, a comprehensive platform designed to support women in managing their menstrual health, offering personalized tools, educational content, and a supportive community. Whether 
 navigating regular cycles, dealing with Polycystic Ovary Syndrome (PCOS), or 
