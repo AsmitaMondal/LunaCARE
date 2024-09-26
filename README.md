@@ -197,6 +197,8 @@ Customer testimonials get saved and dynamically displayed on the webpage. Fillin
 
 ## 🗃️ Documentation
 
+For a better understanding of the models, algorithms and technologies used :
+
 - **Find All Details Here**: [REPORT](https://github.com/AsmitaMondal/LunaCARE/blob/main/Report/2348018_Web%20Project.pdf)
 
 
